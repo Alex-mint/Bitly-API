@@ -46,8 +46,8 @@ def main():
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
     parser = create_parser()
-    namespace = parser.parse_args()
-    url = namespace.url
+    args = parser.parse_args()
+    url = args.url
 
     try:
         if is_bitlink(bitly_token, url):
