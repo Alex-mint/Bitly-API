@@ -45,8 +45,7 @@ def is_bitlink(token, url):
 def main(url):
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
-    #bitly_token = "beb880891d5f15af0ebbee862b5dfa13d93a21df"
-    #url = input("Введите ссылку: ")
+    
 
     try:
         if is_bitlink(bitly_token, url):
@@ -62,6 +61,5 @@ def main(url):
 if __name__ == "__main__":
     parser = createParser()
     namespace = parser.parse_args()
-
     url = namespace.url
     main(url)
