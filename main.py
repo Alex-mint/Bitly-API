@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from urllib.parse import urlparse
 
 
-def createParser():
+def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('url', nargs='?')
 
@@ -45,7 +45,7 @@ def is_bitlink(token, url):
 def main():
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
-    parser = createParser()
+    parser = create_parser()
     namespace = parser.parse_args()
     url = namespace.url
 
