@@ -22,9 +22,9 @@ def shorten_link(token, url):
     return response
 
 
-def count_clicks(token, url):
+def count_clicks(token, netloc, path):
     url = "https://api-ssl.bitly.com/v4/bitlinks/{}{}/clicks/summary" \
-        .format(urlparse(url).netloc, urlparse(url).path)
+        .format(netloc, path)
     headers = {"Authorization": f"Bearer {token}"}
     params = {"unit": "month",
               "units": "-1",
@@ -34,9 +34,9 @@ def count_clicks(token, url):
     return response
 
 
-def is_bitlink(token, url):
+def is_bitlink(token, netloc, path):
     url = "https://api-ssl.bitly.com/v4/bitlinks/{}{}" \
-        .format(urlparse(url).netloc, urlparse(url).path)
+        .format(netloc, path)
     headers = {"Authorization": f"Bearer {token}"}
     response = requests.get(url, headers=headers)
     return response.ok
@@ -48,10 +48,12 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
     url = args.url
+    netloc = urlparse(url).netloc
+    path = urlparse(url).path
 
     try:
-        if is_bitlink(bitly_token, url):
-            response = count_clicks(bitly_token, url)
+        if is_bitlink(bitly_token, netloc, path):
+            response = count_clicks(bitly_token, netloc, path)
             print(f"По вашей ссылке прошли: {response.json()['total_clicks']} раз(а)")
         else:
             response = shorten_link(bitly_token, url)
