@@ -45,6 +45,8 @@ def is_bitlink(token, url):
 def main():
     load_dotenv()
     bitly_token = os.getenv("BITLY_TOKEN")
+    parser = createParser()
+    namespace = parser.parse_args()
     url = namespace.url
 
     try:
@@ -58,7 +60,5 @@ def main():
         print("Введите верную ссылку")
 
 
-if __name__ == "__main__":
-    parser = createParser()
-    namespace = parser.parse_args()  
+if __name__ == "__main__":  
     main()
