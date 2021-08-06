@@ -7,11 +7,11 @@ from urllib.parse import urlparse
 
 
 def create_parser():
-    parser = argparse.ArgumentParser(description='Скрипт позволяет сокращать \
+    parser = argparse.ArgumentParser(description="Скрипт позволяет сокращать \
                                      ссылки с помощью сервиса bit.ly, а также получать \
-                                     количество переходов по сокращенной ссылке.')
-    parser.add_argument('url', help='После main.py введите ссылку как \
-                        аргумент для сокращения или проверки')
+                                     количество переходов по сокращенной ссылке.")
+    parser.add_argument("url", help="После main.py введите ссылку как \
+                        аргумент для сокращения или проверки")
     return parser
 
 
