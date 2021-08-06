@@ -11,6 +11,16 @@ BITLY_TOKEN=bitly_api-key
 ``` 
 Без него программа не запустится.
 
+### Примеры запуска скрипта
+
+```python
+>python main.py https://yandex.ru/
+Битлинк: https://bit.ly/36ZsIKs
+
+>python main.py https://bit.ly/36ZsIKs
+По вашей ссылке прошли: 2 раз(а)
+```
+
 ### Как установить
 
 Python3 должен быть уже установлен.
