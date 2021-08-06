@@ -50,8 +50,9 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
     url = args.url
-    netloc = urlparse(url).netloc
-    path = urlparse(url).path
+    url_parser = urlparse(url)
+    netloc = url_parser.netloc
+    path = url_parser.path
 
     try:
         if is_bitlink(bitly_token, netloc, path):
